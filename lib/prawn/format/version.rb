@@ -1,11 +1,5 @@
 module Prawn
   module Format
-    module Version
-      MAJOR = 0
-      MINOR = 1
-      TINY  = 1
-
-      STRING = [MAJOR, MINOR, TINY].join(".")
-    end
+    VERSION = "0.2.0.1"
   end
 end
