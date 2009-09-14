@@ -5,13 +5,15 @@ puts "Prawn-Format specs: Running on Ruby Version: #{RUBY_VERSION}"
 require "rubygems"
 require "test/spec"                                                
 require "mocha"
-require "prawn"
+$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'vendor', 'prawn-core', 'lib')
 $LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib') 
-$LOAD_PATH << File.join(Prawn::BASEDIR, 'vendor','pdf-inspector','lib')
+
+require "prawn/core"
 require "prawn/format"
 
 Prawn.debug = true
 
+$LOAD_PATH << File.join(Prawn::BASEDIR, 'vendor','pdf-inspector','lib')
 gem 'pdf-reader', ">=0.7.3"
 require "pdf/reader"          
 require "pdf/inspector"
