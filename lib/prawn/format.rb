@@ -5,42 +5,28 @@ require 'prawn/format/text_object'
 
 module Prawn
   module Format
-    def self.included(mod)
-      mod.send :alias_method, :text_without_formatting, :text
-      mod.send :alias_method, :text, :text_with_formatting
-
-      mod.send :alias_method, :width_of_without_formatting, :width_of
-      mod.send :alias_method, :width_of, :width_of_with_formatting
-
-      mod.send :alias_method, :height_of_without_formatting, :height_of
-      mod.send :alias_method, :height_of, :height_of_with_formatting
-    end
-
-    # Overloaded version of #text. Call via #text, rather than #text_with_formatting
-    # (see above, where it aliased to #text).
-    def text_with_formatting(text, options={}) #:nodoc:
+    # Overloaded version of #text.
+    def text(text, options={}) #:nodoc:
       if unformatted?(text, options)
-        text_without_formatting(text, options)
+        super
       else
         format(text, options)
       end
     end
 
-    # Overloaded version of #height_of. Call via #height_of, rather than
-    # #height_of_with_formatting (see above, where it aliased to #height_of).
-    def height_of_with_formatting(string, line_width, size=font_size, options={}) #:nodoc:
+    # Overloaded version of #height_of.
+    def height(string, line_width, size=font_size, options={}) #:nodoc:
       if unformatted?(string, options)
-        height_of_without_formatting(string, line_width, size)
+        super(string, line_width, size)
       else
         formatted_height(string, line_width, size, options)
       end
     end
 
-    # Overloaded version of #width_of. Call via #width_of, rather than
-    # #width_of_with_formatting (see above, where it aliased to #width_of).
-    def width_of_with_formatting(string, options={}) #:nodoc:
+    # Overloaded version of #width_of.
+    def width(string, options={}) #:nodoc:
       if unformatted?(string, options)
-        width_of_without_formatting(string, options)
+        super
       else
         formatted_width(string, options)
       end
@@ -226,4 +212,4 @@ module Prawn
 end
 
 require 'prawn/document'
-Prawn::Document.send(:include, Prawn::Format)
+Prawn::Document.extensions << Prawn::Format
