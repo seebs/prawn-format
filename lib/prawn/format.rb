@@ -5,6 +5,7 @@ require 'prawn/format/text_object'
 
 module Prawn
   module Format
+
     # Overloaded version of #text.
     def text(text, options={}) #:nodoc:
       if unformatted?(text, options)
@@ -211,5 +212,4 @@ module Prawn
   end
 end
 
-require 'prawn/document'
 Prawn::Document.extensions << Prawn::Format

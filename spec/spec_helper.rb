@@ -5,10 +5,10 @@ puts "Prawn-Format specs: Running on Ruby Version: #{RUBY_VERSION}"
 require "rubygems"
 require "test/spec"                                                
 require "mocha"
-$LOAD_PATH << ( ENV["PRAWN_CORE_LIB"] ||
+$LOAD_PATH.unshift( ENV["PRAWN_CORE_LIB"] ||
                 File.join(File.dirname(__FILE__), *%w[.. vendor prawn-core lib]) )
 require "prawn/core"
-$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib') 
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib') 
 require "prawn/format"
 
 Prawn.debug = true
