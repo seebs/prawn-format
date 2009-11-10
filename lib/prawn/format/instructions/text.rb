@@ -14,7 +14,7 @@ module Prawn
           @text = text
           @break = options.key?(:break) ? options[:break] : text.index(/[-\xE2\x80\x94\s]/)
           @discardable = options.key?(:discardable) ? options[:discardable] : text.index(/\s/)
-          state.font.normalize_encoding(@text) if options.fetch(:normalize, true)
+          @text = state.font.normalize_encoding(@text) if options.fetch(:normalize, true)
         end
 
         def dup

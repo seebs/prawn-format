@@ -1,8 +1,6 @@
 #coding: utf-8
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require "prawn"
-require "prawn/format"
+require "#{File.dirname(__FILE__)}/example_helper.rb"
 
 Prawn::Document.generate("document.pdf") do
   tags :h1 => { :font_size => "2em", :font_weight => :bold },

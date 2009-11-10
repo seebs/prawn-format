@@ -1,8 +1,6 @@
 #coding: utf-8
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'prawn'
-require 'prawn/format'
+require "#{File.dirname(__FILE__)}/example_helper"
 
 dice = "#{Prawn::BASEDIR}/data/images/dice.png"
 Prawn::Document.generate "flowing.pdf" do
