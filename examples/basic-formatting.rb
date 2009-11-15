@@ -1,8 +1,6 @@
 #coding: utf-8
 
-# require "#{File.dirname(__FILE__)}/example_helper.rb"
-require '/usr/lib/ruby/gems/1.9.1/gems/prawn-0.5.1/lib/prawn'
-require '/usr/lib/ruby/gems/1.9.1/gems/prawn-format-0.2.1/lib/prawn/format'
+require "#{File.dirname(__FILE__)}/example_helper.rb"
 
 JAPANESE = "#{Prawn::BASEDIR}/data/fonts/gkai00mp.ttf"
 
