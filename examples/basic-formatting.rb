@@ -1,11 +1,13 @@
 #coding: utf-8
 
-require "#{File.dirname(__FILE__)}/example_helper.rb"
+# require "#{File.dirname(__FILE__)}/example_helper.rb"
+require '/usr/lib/ruby/gems/1.9.1/gems/prawn-0.5.1/lib/prawn'
+require '/usr/lib/ruby/gems/1.9.1/gems/prawn-format-0.2.1/lib/prawn/format'
 
 JAPANESE = "#{Prawn::BASEDIR}/data/fonts/gkai00mp.ttf"
 
 Prawn::Document.generate "basic-formatting.pdf" do
-  text "<a name='top'/>Thanks to the Prawn-Format library, <a href='prawn'>Prawn</a> now supports <i>inline formatting</i>. What this means in practical terms is that you can embed XML tags in your text calls, turning bits like <code>&lt;b&gt;bold&lt;/b&gt;</code> into <b>bold</b>."
+  text "<a name='top'/>Thanks to the Prawn-Format library, <a href='#prawn'>Prawn</a> now supports <i>inline formatting</i>. What this means in practical terms is that you can embed XML tags in your text calls, turning bits like <code>&lt;b&gt;bold&lt;/b&gt;</code> into <b>bold</b>."
 
   move_text_position font_size
 
@@ -19,11 +21,11 @@ Prawn::Document.generate "basic-formatting.pdf" do
 
   start_new_page
 
-  text "<a name='prawn'/><font color='#f70'><strong>Prawn</strong></font> is a PDF generation library for <a href='ruby'>Ruby</a>. Its emphasis is on speed, but also provides a very easy-to-use API, and boasts such advanced features as <em>True-Type font embedding</em>, <em>font subsetting</em>, <em>image support</em>, and many text layout functions."
+  text "<a name='prawn'/><font color='#f70'><strong>Prawn</strong></font> is a PDF generation library for <a href='#ruby'>Ruby</a>. Its emphasis is on speed, but also provides a very easy-to-use API, and boasts such advanced features as <em>True-Type font embedding</em>, <em>font subsetting</em>, <em>image support</em>, and many text layout functions."
 
   move_text_position font_size
 
-  text "<a href='top'>Return to top of document</a>"
+  text "<a href='#top'>Return to top of document</a>"
 
   start_new_page
 
@@ -31,5 +33,5 @@ Prawn::Document.generate "basic-formatting.pdf" do
 
   move_text_position font_size
 
-  text "<a href='top'>Return to top of document</a>"
+  text "<a href='#top'>Return to top of document</a>"
 end
