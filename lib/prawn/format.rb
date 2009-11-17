@@ -16,7 +16,7 @@ module Prawn
     end
 
     # Overloaded version of #height_of.
-    def height(string, line_width, size=font_size, options={}) #:nodoc:
+    def height_of(string, line_width, size=font_size, options={}) #:nodoc:
       if unformatted?(string, options)
         super(string, line_width, size)
       else
@@ -25,7 +25,7 @@ module Prawn
     end
 
     # Overloaded version of #width_of.
-    def width(string, options={}) #:nodoc:
+    def width_of(string, options={}) #:nodoc:
       if unformatted?(string, options)
         super
       else
