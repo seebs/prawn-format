@@ -5,7 +5,6 @@ module Prawn
 
     class Line
       attr_reader :source
-      attr_reader :instructions
 
       def initialize(instructions, hard_break)
         # need to remember the "source" instructions, because lines can
